@@ -1,6 +1,7 @@
 import re
 import bs4
 import csv
+import ast
 import time
 import json
 import requests
@@ -11,18 +12,18 @@ class DatabaseHandler:
 	__regex = re.compile('^https://www.imdb.com/title/tt[^/]+/$')
 	
 	@staticmethod
-	def loadFilmIDDatabase(path):
+	def loadDatabase(path):
 		inputFile = open(path)
 		inputReader = csv.reader(inputFile)
-		imdbIDs = list(inputReader)
+		dataList = list(inputReader)
 		inputFile.close()
-		return imdbIDs
+		return dataList
 	
 	@staticmethod
-	def saveDatabase(dataList, path):
+	def saveDatabase(data, path):
 		outputFile = open(path, 'w', newline='')
 		outputWriter = csv.writer(outputFile)
-		outputWriter.writerow(dataList)
+		outputWriter.writerow(data)
 		outputFile.close()
 	
 	@staticmethod
@@ -295,7 +296,7 @@ class DatabaseHandler:
 					imdbIDs):
 				DatabaseHandler.__waitForThreads(threads)
 				DatabaseHandler.__loadIMDBFilmJSONs(startTime, imdbJSONs, loadedImdbPageList)
-		# break
+				# break
 		
 		return imdbJSONs
 	
@@ -306,7 +307,18 @@ class DatabaseHandler:
 		requestsInParallel = 100
 		
 		imdbFilmInfoDatabase = DatabaseHandler.__loadIMDBFilmDatabase(startTime, imdbIDs, requestsInParallel)
-		
 		DatabaseHandler.saveDatabase(imdbFilmInfoDatabase, filmJsonDatabasePath)
 		
 		print('Completion time: ' + str(time.time() - startTime))
+	
+	@staticmethod
+	def loadFilmInfoDatabase(filmInfoDatabasePath):
+		filmInfoDatabase = DatabaseHandler.loadDatabase(filmInfoDatabasePath)[0]
+		filmJsonList = []
+		
+		for film in filmInfoDatabase:
+			filmJson = json.dumps(ast.literal_eval(film))
+			filmJsonList.append(json.loads(filmJson))
+			# print(type(json.loads(filmJson)))
+		
+		return filmJsonList

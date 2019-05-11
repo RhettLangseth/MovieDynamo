@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eb13cc8-68fb-4266-9652-81ec2a6ad12e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DatabaseHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseHandler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GenerateFullDatabase.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/GenerateFullDatabase.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GenerateIdDatabase.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/GenerateIdDatabase.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GenerateFullDatabase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="55" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="55" />
+            <state relative-caret-position="144">
+              <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -26,20 +26,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DatabaseHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="26" column="4" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Project Backups/05102019(2)/MovieDynamo/src/DatabaseHandler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="172" column="25" lean-forward="true" selection-end-line="301" />
+            <state relative-caret-position="392">
+              <caret line="320" column="52" selection-start-line="320" selection-start-column="52" selection-end-line="320" selection-end-column="52" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -50,29 +38,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MovieDynamo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="35" selection-start-line="35" selection-end-line="35" selection-end-column="72" />
+            <state relative-caret-position="464">
+              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/infoDatabase.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret column="1612" selection-start-column="1612" selection-end-column="1612" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/GenerateIdDatabase.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="41" lean-forward="true" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -88,13 +58,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>threa</find>
-      <find>True</find>
-      <find>url3</find>
-      <find>threadObject</find>
-      <find>__loadImdbPages</find>
-      <find>startT</find>
-      <find>threading</find>
       <find>__loadIMDBFilms</find>
       <find>__loadIMDBFilmsInfo</find>
       <find>__loadIMDBFilmJSONs</find>
@@ -114,6 +77,17 @@
       <find>&quot;&quot;</find>
       <find>== None</find>
       <find>print</find>
+      <find>loadI</find>
+      <find>load</find>
+      <find>/</find>
+      <find>\</find>
+      <find>loadFilmIDDatabase</find>
+      <find>json.</find>
+      <find>in</find>
+      <find>inm</find>
+      <find>ure made</find>
+      <find>Avenger</find>
+      <find>Avengers</find>
     </findStrings>
     <replaceStrings>
       <replace>is None</replace>
@@ -129,9 +103,9 @@
         <option value="$PROJECT_DIR$/src/infoDatabase.csv" />
         <option value="$PROJECT_DIR$/src/test_temp.py" />
         <option value="$PROJECT_DIR$/src/MovieDynamo.py" />
-        <option value="$PROJECT_DIR$/src/GenerateFullDatabase.py" />
-        <option value="$PROJECT_DIR$/src/DatabaseHandler.py" />
         <option value="$PROJECT_DIR$/src/GenerateIdDatabase.py" />
+        <option value="$PROJECT_DIR$/src/DatabaseHandler.py" />
+        <option value="$PROJECT_DIR$/src/GenerateFullDatabase.py" />
       </list>
     </option>
   </component>
@@ -184,7 +158,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test (1)">
+  <component name="RunManager" selected="Python.GenerateFullDatabase">
     <configuration name="DatabaseHandler" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MovieDynamo" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -198,6 +172,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/DatabaseHandler.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GenerateFullDatabase" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MovieDynamo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/GenerateFullDatabase.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -248,27 +243,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="MovieDynamo" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Main\College\Python\MovieDynamo\src\GenerateFullDatabase.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="test_temp" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MovieDynamo" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -292,11 +266,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.GenerateFullDatabase" />
         <item itemvalue="Python.test (1)" />
         <item itemvalue="Python.GenerateIdDatabase" />
         <item itemvalue="Python.test_temp" />
         <item itemvalue="Python.DatabaseHandler" />
-        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -371,13 +345,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/infoDatabase.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret column="1612" selection-start-column="1612" selection-end-column="1612" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Project Backups/05102019(2)/MovieDynamo/src/DatabaseHandler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="302">
@@ -388,20 +355,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DatabaseHandler.py">
+    <entry file="file://$PROJECT_DIR$/src/GenerateIdDatabase.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="26" column="4" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+        <state relative-caret-position="54">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/infoDatabase.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MovieDynamo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MovieDynamo.py">
+    <entry file="file://$PROJECT_DIR$/src/infoDatabase.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="35" selection-start-line="35" selection-end-line="35" selection-end-column="72" />
+        <state relative-caret-position="161">
+          <caret column="451586" selection-start-column="451578" selection-end-column="451586" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DatabaseHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="320" column="52" selection-start-line="320" selection-start-column="52" selection-end-line="320" selection-end-column="52" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -410,15 +394,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GenerateFullDatabase.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="55" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GenerateIdDatabase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="41" lean-forward="true" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+        <state relative-caret-position="144">
+          <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
         </state>
       </provider>
     </entry>

@@ -80,11 +80,6 @@ class DatabaseHandler:
 		
 		requestsList.append(res)
 	
-	# try:
-	# 	requestsList.append(requests.get(url))
-	# except requests.exceptions.ConnectionError:
-	# 	print('Connection refused for', url)
-	
 	@staticmethod
 	def __waitForThreads(threads):
 		while len(threads) > 0:
@@ -92,11 +87,10 @@ class DatabaseHandler:
 	
 	@staticmethod
 	def generateFilmDatabase(filmIDDatabasePath):
-		print('Loading films. This may take up to 25 minutes.')
+		print('Loading films. This may take up to 40 minutes.')
 		startTime = time.time()
 		
-		wikiLists = DatabaseHandler.__select('https://en.wikipedia.org/wiki/Lists_of_films',
-											 '/wiki/List_of_films:_(numbers|[A-Z])', 1)
+		wikiLists = DatabaseHandler.__select('https://en.wikipedia.org/wiki/Lists_of_films', '/wiki/List_of_films:_(numbers|[A-Z])', 1)
 		imdbIDs = DatabaseHandler.__loadWikiLists(startTime, wikiLists, [0], 500)
 		
 		# This removes all duplicate film ids from the list
@@ -104,6 +98,7 @@ class DatabaseHandler:
 		
 		DatabaseHandler.saveDatabase(imdbIDs, filmIDDatabasePath)
 		
+		print('Movies Loaded: ' + str(len(imdbIDs)))
 		print('Completion time: ' + str(time.time() - startTime))
 	
 	@staticmethod
@@ -112,8 +107,7 @@ class DatabaseHandler:
 		
 		for wikiList in wikiLists:
 			print(wikiList.get('title'))
-			
-			wikiFilms = DatabaseHandler.__select('https://en.wikipedia.org' + wikiList.get('href'), 'body ul i a', 0)
+			wikiFilms = DatabaseHandler.__select('https://en.wikipedia.org' + wikiList.get('href'), 'body div > ul > li a', 0)
 			
 			if wikiFilms is None:
 				continue
@@ -129,21 +123,27 @@ class DatabaseHandler:
 		loadedWikiFilmPageList = []
 		
 		for wikiFilm in wikiFilms:
+			if 'span' in str(wikiFilm) or wikiFilm.get('title') == None or not wikiFilm.get('href').startswith('/'):
+				continue
+			
 			count += 1
 			url = 'https://en.wikipedia.org' + wikiFilm.get('href')
 			threadObject = threading.Thread(target=DatabaseHandler.__getRequest, args=[url, loadedWikiFilmPageList])
 			threads.append(threadObject)
 			threadObject.start()
 			
-			if count % requestsInParallel == 0 or len(loadedWikiFilmPageList) >= requestsInParallel or count == len(
-					wikiFilms):
+			if count % requestsInParallel == 0 or len(loadedWikiFilmPageList) >= requestsInParallel:
 				DatabaseHandler.__waitForThreads(threads)
 				DatabaseHandler.__loadIMDBFilms(startTime, imdbIDs, loadedWikiFilmPageList, filmsLoadedCount)
+		
+		DatabaseHandler.__waitForThreads(threads)
+		DatabaseHandler.__loadIMDBFilms(startTime, imdbIDs, loadedWikiFilmPageList, filmsLoadedCount)
 	
 	@staticmethod
 	def __loadIMDBFilms(startTime, imdbIDs, loadedWikiFilmPageList, filmsLoadedCount):
 		while len(loadedWikiFilmPageList) > 0:
-			soup = DatabaseHandler.__getSoup(loadedWikiFilmPageList.pop())
+			res = loadedWikiFilmPageList.pop()
+			soup = DatabaseHandler.__getSoup(res)
 			
 			if soup is None:
 				continue
@@ -185,14 +185,10 @@ class DatabaseHandler:
 			DatabaseHandler.__setValue(filmDict, filmJson, 'ratingValue', 'aggregateRating', jsonKey2='ratingValue')
 			DatabaseHandler.__setValue(filmDict, filmJson, 'ratingCount', 'aggregateRating', jsonKey2='ratingCount')
 			DatabaseHandler.__setValue(filmDict, filmJson, 'genre', 'genre')
-			DatabaseHandler.__setValue(filmDict, filmJson, 'actorIds', 'actor', jsonKey2='url', regexFilter='[^\d]',
-									   makeList=True)
-			DatabaseHandler.__setValue(filmDict, filmJson, 'directorIds', 'director', jsonKey2='url',
-									   regexFilter='[^\d]', makeList=True)
-			DatabaseHandler.__setValue(filmDict, filmJson, 'writerIds', 'creator', jsonKey2='url', regexFilter='[^\d]',
-									   regexToMatch='nm\d+', makeList=True)
-			DatabaseHandler.__setValue(filmDict, filmJson, 'companyIds', 'creator', jsonKey2='url', regexFilter='[^\d]',
-									   regexToMatch='co\d+', makeList=True)
+			DatabaseHandler.__setValue(filmDict, filmJson, 'actorIds', 'actor', jsonKey2='url', regexFilter='[^\d]', makeList=True)
+			DatabaseHandler.__setValue(filmDict, filmJson, 'directorIds', 'director', jsonKey2='url', regexFilter='[^\d]', makeList=True)
+			DatabaseHandler.__setValue(filmDict, filmJson, 'writerIds', 'creator', jsonKey2='url', regexFilter='[^\d]', regexToMatch='nm\d+', makeList=True)
+			DatabaseHandler.__setValue(filmDict, filmJson, 'companyIds', 'creator', jsonKey2='url', regexFilter='[^\d]', regexToMatch='co\d+', makeList=True)
 			
 			m = re.search(r'P.*T((\d+)H)?((\d+)M)?((\d+)S)?', filmDict['minutes'])
 			
@@ -214,7 +210,7 @@ class DatabaseHandler:
 			if m is not None:
 				filmDict['year'] = m.group(0)
 			
-			if not isinstance(filmDict['genre'][0], list):
+			if not isinstance(filmDict['genre'], list):
 				filmDict['genre'] = [filmDict['genre']]
 			
 			imdbJSONs.append(filmDict)
@@ -270,7 +266,6 @@ class DatabaseHandler:
 			imdbID = imdbFilm.get('href')[-8:-1]
 			
 			if not imdbID.isdigit():
-				# print(imdbFilm.get('href') + ' ' + imdbFilm.text)
 				continue
 			
 			imdbIDs.append(imdbID)
@@ -287,16 +282,13 @@ class DatabaseHandler:
 		
 		for imdbID in imdbIDs:
 			count += 1
-			threadObject = threading.Thread(target=DatabaseHandler.__getRequest,
-											args=[imdbLink + str(imdbID), loadedImdbPageList])
+			threadObject = threading.Thread(target=DatabaseHandler.__getRequest, args=[imdbLink + str(imdbID), loadedImdbPageList])
 			threads.append(threadObject)
 			threadObject.start()
 			
-			if count % requestsInParallel == 0 or len(loadedImdbPageList) >= requestsInParallel or count == len(
-					imdbIDs):
+			if count % requestsInParallel == 0 or len(loadedImdbPageList) >= requestsInParallel or count == len(imdbIDs):
 				DatabaseHandler.__waitForThreads(threads)
 				DatabaseHandler.__loadIMDBFilmJSONs(startTime, imdbJSONs, loadedImdbPageList)
-				# break
 		
 		return imdbJSONs
 	
@@ -319,6 +311,5 @@ class DatabaseHandler:
 		for film in filmInfoDatabase:
 			filmJson = json.dumps(ast.literal_eval(film))
 			filmJsonList.append(json.loads(filmJson))
-			# print(type(json.loads(filmJson)))
 		
 		return filmJsonList

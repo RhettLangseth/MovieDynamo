@@ -1,0 +1,1 @@
+{"filmIdDatabase": "idDatabase.csv", "filmInfoDatabase": "infoDatabase.csv", "likedFilms": "likedFilms.csv", "dislikedFilms": "dislikedFilms.csv", "outputFile": "suggestions.csv", "count": 10}

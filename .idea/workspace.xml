@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eb13cc8-68fb-4266-9652-81ec2a6ad12e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dislikedFilmsz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/inputFile.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/suggestions.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DatabaseHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseHandler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GenerateFullDatabase.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/GenerateFullDatabase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GenerateIdDatabase.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/GenerateIdDatabase.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MovieDynamo.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieDynamo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dislikedFilms.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieSuggester.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieSuggester.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieSuggester.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/idDatabase.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/idDatabase.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/infoDatabase.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/infoDatabase.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/likedFilms.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/likedFilms.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/suggestions.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/suggestions.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MovieDynamo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+            <state relative-caret-position="358">
+              <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -36,10 +31,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/infoDatabase.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2016">
+              <caret column="422" selection-start-column="1" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/idDatabase.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="738">
+              <caret column="7999" lean-forward="true" selection-start-column="7999" selection-end-column="7999" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MovieSuggester.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+            <state relative-caret-position="569">
+              <caret line="129" column="29" lean-forward="true" selection-start-line="129" selection-start-column="29" selection-end-line="129" selection-end-column="45" />
               <folding>
                 <element signature="e#105#584#0" />
                 <element signature="e#716#1673#0" />
@@ -51,17 +64,16 @@
                 <element signature="e#2262#2365#0" />
                 <element signature="e#2425#2572#0" />
                 <element signature="e#2630#3458#0" />
-                <element signature="e#3279#3437#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DatabaseHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="310" column="37" selection-start-line="310" selection-start-column="37" selection-end-line="310" selection-end-column="37" />
+            <state relative-caret-position="304">
+              <caret line="302" column="8" lean-forward="true" selection-start-line="302" selection-start-column="8" selection-end-line="302" selection-end-column="8" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -71,7 +83,29 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/likedFilms.csv">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/inputFile.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="190" selection-start-column="190" selection-end-column="190" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/suggestions.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="7047" selection-start-column="7040" selection-end-column="7047" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -85,7 +119,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>loadFilmIDDatabase</find>
       <find>json.</find>
       <find>in</find>
       <find>inm</find>
@@ -115,6 +148,7 @@
       <find>'</find>
       <find>{</find>
       <find>#</find>
+      <find>0419294</find>
     </findStrings>
     <replaceStrings>
       <replace>is None</replace>
@@ -138,11 +172,12 @@
         <option value="$PROJECT_DIR$/src/inputFile.txt" />
         <option value="$PROJECT_DIR$/src/GenerateFullDatabase.py" />
         <option value="$PROJECT_DIR$/src/GenerateIdDatabase.py" />
-        <option value="$PROJECT_DIR$/src/inputFile.json" />
         <option value="$PROJECT_DIR$/src/suggestions.csv" />
-        <option value="$PROJECT_DIR$/src/MovieSuggester.py" />
-        <option value="$PROJECT_DIR$/src/MovieDynamo.py" />
         <option value="$PROJECT_DIR$/src/DatabaseHandler.py" />
+        <option value="$PROJECT_DIR$/src/MovieSuggester.py" />
+        <option value="$PROJECT_DIR$/src/idDatabase.csv" />
+        <option value="$PROJECT_DIR$/src/inputFile.json" />
+        <option value="$PROJECT_DIR$/src/MovieDynamo.py" />
       </list>
     </option>
   </component>
@@ -401,57 +436,6 @@
     <entry file="file://$PROJECT_DIR$/src/dislikedFilmsz.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/suggestions.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/infoDatabase.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret column="422" lean-forward="true" selection-start-column="1" selection-end-column="422" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/idDatabase.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9540">
-          <caret column="106111" selection-start-column="106104" selection-end-column="106111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MovieDynamo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MovieSuggester.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding>
-            <element signature="e#105#584#0" />
-            <element signature="e#716#1673#0" />
-            <element signature="e#762#766#0" />
-            <element signature="e#808#812#0" />
-            <element signature="e#854#858#0" />
-            <element signature="e#900#904#0" />
-            <element signature="e#946#950#0" />
-            <element signature="e#2262#2365#0" />
-            <element signature="e#2425#2572#0" />
-            <element signature="e#2630#3458#0" />
-            <element signature="e#3279#3437#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GenerateFullDatabase.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -467,19 +451,73 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/likedFilms.csv">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MovieSuggester.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="129" column="29" lean-forward="true" selection-start-line="129" selection-start-column="29" selection-end-line="129" selection-end-column="45" />
+          <folding>
+            <element signature="e#105#584#0" />
+            <element signature="e#716#1673#0" />
+            <element signature="e#762#766#0" />
+            <element signature="e#808#812#0" />
+            <element signature="e#854#858#0" />
+            <element signature="e#900#904#0" />
+            <element signature="e#946#950#0" />
+            <element signature="e#2262#2365#0" />
+            <element signature="e#2425#2572#0" />
+            <element signature="e#2630#3458#0" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/inputFile.json">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="135" selection-start-column="135" selection-end-column="135" />
+          <caret column="190" selection-start-column="190" selection-end-column="190" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/suggestions.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7047" selection-start-column="7040" selection-end-column="7047" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DatabaseHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="310" column="37" selection-start-line="310" selection-start-column="37" selection-end-line="310" selection-end-column="37" />
+        <state relative-caret-position="304">
+          <caret line="302" column="8" lean-forward="true" selection-start-line="302" selection-start-column="8" selection-end-line="302" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idDatabase.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="738">
+          <caret column="7999" lean-forward="true" selection-start-column="7999" selection-end-column="7999" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/infoDatabase.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2016">
+          <caret column="422" selection-start-column="1" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MovieDynamo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

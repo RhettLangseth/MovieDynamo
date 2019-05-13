@@ -87,7 +87,7 @@ class DatabaseHandler:
 	
 	@staticmethod
 	def generateFilmDatabase(filmIDDatabasePath):
-		print('Loading films. This may take up to 40 minutes.')
+		print('Loading films. This may take around 40 minutes.')
 		startTime = time.time()
 		
 		wikiLists = DatabaseHandler.__select('https://en.wikipedia.org/wiki/Lists_of_films', '/wiki/List_of_films:_(numbers|[A-Z])', 1)
@@ -294,7 +294,7 @@ class DatabaseHandler:
 	
 	@staticmethod
 	def generateFilmInfoDatabase(imdbIDs, filmJsonDatabasePath):
-		print('Loading films information. This may take up to 1 hour.')
+		print('Loading films information. This may take around 80 minutes.')
 		startTime = time.time()
 		requestsInParallel = 100
 		

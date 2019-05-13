@@ -17,7 +17,7 @@ def printUsage():
 
 def printSuggestions(outputFilePath, filmInfoDatabasePath):
 	filmInfoDatabase = db.loadFilmInfoDatabase(filmInfoDatabasePath)
-	filmInfoDatabaseScoreList = ms.getFilmObjects(outputFilePath, filmInfoDatabase)
+	filmInfoDatabaseScoreList = ms.getFilmObjects(outputFilePath, filmInfoDatabase, True)
 	i = 0
 	
 	for film in filmInfoDatabaseScoreList:
@@ -91,3 +91,4 @@ run()
 # python MovieDynamo.py suggestFilms inputFile.json
 # python MovieDynamo.py updateIdDatabase inputFile.json
 # python MovieDynamo.py updateInfoDatabase inputFile.json
+# python MovieDynamo.py printSuggestions inputFile.json

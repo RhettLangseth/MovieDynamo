@@ -98,25 +98,31 @@ class MovieSuggester:
 		return totalScore
 	
 	@staticmethod
-	def __getFilmInfoList(likedFilmIds, filmInfoDatabase):
+	def __getFilmInfoList(filmIds, filmInfoDatabase, orderMatters):
 		likedFilmInfoList = []
 		
-		for dbFilm in filmInfoDatabase:
-			if dbFilm['id'] in likedFilmIds:
-				likedFilmInfoList.append(dbFilm)
+		if not orderMatters:
+			for dbFilm in filmInfoDatabase:
+				if dbFilm['id'] in filmIds:
+					likedFilmInfoList.append(dbFilm)
+		else:
+			for filmId in filmIds:
+				for dbFilm in filmInfoDatabase:
+					if dbFilm['id'] == filmId:
+						likedFilmInfoList.append(dbFilm)
 		
 		return likedFilmInfoList
 	
 	@staticmethod
-	def getFilmObjects(filmsPath, filmInfoDatabase):
+	def getFilmObjects(filmsPath, filmInfoDatabase, orderMatters):
 		filmIds = db.loadDatabase(filmsPath)[0]
 		
-		return MovieSuggester.__getFilmInfoList(filmIds, filmInfoDatabase)
+		return MovieSuggester.__getFilmInfoList(filmIds, filmInfoDatabase, orderMatters)
 	
 	@staticmethod
 	def getTopSuggestedFilms(likedFilmsPath, filmInfoDatabasePath, maxCount):
 		filmInfoDatabase = db.loadFilmInfoDatabase(filmInfoDatabasePath)
-		likedFilms = MovieSuggester.getFilmObjects(likedFilmsPath, filmInfoDatabase)
+		likedFilms = MovieSuggester.getFilmObjects(likedFilmsPath, filmInfoDatabase, False)
 		filmInfoDatabaseScoreList = []
 		
 		for dbFilm in filmInfoDatabase:

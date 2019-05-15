@@ -67,6 +67,13 @@ class MovieSuggester:
 		return (10 - abs(float(likedFilm['rV']) - float(dbFilm['rV']))) / 10
 
 	@staticmethod
+	def __getMinutesScore(likedFilm, dbFilm):
+		if likedFilm['m'] == 'N/A' or dbFilm['m'] == 'N/A':
+			return 0
+
+		return (10 - abs(float(likedFilm['m']) - float(dbFilm['m']))) / 10
+
+	@staticmethod
 	def __getcRScore(likedFilm, dbFilm):
 		return MovieSuggester.__getcRSimilarity(likedFilm['cR'], dbFilm['cR'])
 
@@ -93,7 +100,8 @@ class MovieSuggester:
 			userRatingScore = MovieSuggester.__getUserRatingScore(likedFilm, dbFilm)
 			cRScore = MovieSuggester.__getcRScore(likedFilm, dbFilm)
 			yScore = MovieSuggester.__getyScore(likedFilm, dbFilm)
-			totalScore += gScore + directorScore + actorScore + writerScore + companyScore + userRatingScore + cRScore + yScore
+			mScore = MovieSuggester.__getMinutesScore(likedFilm, dbFilm)
+			totalScore += gScore + directorScore + actorScore + (mScore/10) + writerScore + companyScore + userRatingScore + cRScore + yScore
 
 		return totalScore
 

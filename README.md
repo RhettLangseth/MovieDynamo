@@ -1,5 +1,7 @@
 # MovieDyanmo
 
+> Note: Only compatible with Python 2.7
+
 ### Purpose
 
 The goal of the MovieDynamo program is to essentially provide an API that receives information from the user and returns a list of suggested films. The way this typically works is that the user inputs a list of movies that they like. 

@@ -10,7 +10,7 @@ class MovieElement:
 
 class MovieSuggester:
 	@staticmethod
-	def __getContentRatingSimilarity(movie1, movie2):
+	def __getcRSimilarity(movie1, movie2):
 		if movie1 == 'G':
 			movie1Type = 0
 		elif movie1 == 'PG':
@@ -23,7 +23,7 @@ class MovieSuggester:
 			movie1Type = 4
 		else:
 			return 0
-		
+
 		if movie2 == 'G':
 			movie2Type = 0
 		elif movie2 == 'PG':
@@ -36,71 +36,71 @@ class MovieSuggester:
 			movie2Type = 4
 		else:
 			return 0
-		
+
 		return (5 - abs(movie1Type - movie2Type)) / 5
-	
+
 	@staticmethod
-	def __getGenreScore(likedFilm, dbFilm):
-		return len(set(likedFilm['genre']) & set(dbFilm['genre'])) / len(set(likedFilm['genre']) | set(dbFilm['genre']))
-	
+	def __getgScore(likedFilm, dbFilm):
+		return len(set(likedFilm['g']) & set(dbFilm['g'])) / len(set(likedFilm['g']) | set(dbFilm['g']))
+
 	@staticmethod
 	def __getDirectorScore(likedFilm, dbFilm):
-		return len(set(likedFilm['directorIds']) & set(dbFilm['directorIds'])) / len(set(likedFilm['directorIds']) | set(dbFilm['directorIds']))
-	
+		return len(set(likedFilm['dIds']) & set(dbFilm['dIds'])) / len(set(likedFilm['dIds']) | set(dbFilm['dIds']))
+
 	@staticmethod
 	def __getActorScore(likedFilm, dbFilm):
-		return len(set(likedFilm['actorIds']) & set(dbFilm['actorIds'])) / len(set(likedFilm['actorIds']) | set(dbFilm['actorIds']))
-	
+		return len(set(likedFilm['a']) & set(dbFilm['a'])) / len(set(likedFilm['a']) | set(dbFilm['a']))
+
 	@staticmethod
 	def __getWriterScore(likedFilm, dbFilm):
-		return len(set(likedFilm['writerIds']) & set(dbFilm['writerIds'])) / len(set(likedFilm['writerIds']) | set(dbFilm['writerIds']))
-	
+		return len(set(likedFilm['wId']) & set(dbFilm['wId'])) / len(set(likedFilm['wId']) | set(dbFilm['wId']))
+
 	@staticmethod
 	def __getCompanyScore(likedFilm, dbFilm):
-		return len(set(likedFilm['companyIds']) & set(dbFilm['companyIds'])) / len(set(likedFilm['companyIds']) | set(dbFilm['companyIds']))
-	
+		return len(set(likedFilm['coid']) & set(dbFilm['coid'])) / len(set(likedFilm['coid']) | set(dbFilm['coid']))
+
 	@staticmethod
 	def __getUserRatingScore(likedFilm, dbFilm):
-		if likedFilm['ratingValue'] == 'N/A' or dbFilm['ratingValue'] == 'N/A':
+		if likedFilm['rV'] == 'N/A' or dbFilm['rV'] == 'N/A':
 			return 0
-		
-		return (10 - abs(float(likedFilm['ratingValue']) - float(dbFilm['ratingValue']))) / 10
-	
+
+		return (10 - abs(float(likedFilm['rV']) - float(dbFilm['rV']))) / 10
+
 	@staticmethod
-	def __getContentRatingScore(likedFilm, dbFilm):
-		return MovieSuggester.__getContentRatingSimilarity(likedFilm['contentRating'], dbFilm['contentRating'])
-	
+	def __getcRScore(likedFilm, dbFilm):
+		return MovieSuggester.__getcRSimilarity(likedFilm['cR'], dbFilm['cR'])
+
 	@staticmethod
-	def __getYearScore(likedFilm, dbFilm):
-		if likedFilm['year'] == 'N/A' or dbFilm['year'] == 'N/A':
+	def __getyScore(likedFilm, dbFilm):
+		if likedFilm['y'] == 'N/A' or dbFilm['y'] == 'N/A':
 			return 0
-		
-		return (10 - abs(float(likedFilm['year']) - float(dbFilm['year']))) / 10
-	
+
+		return (10 - abs(float(likedFilm['y']) - float(dbFilm['y']))) / 10
+
 	@staticmethod
 	def __scoreFilm(dbFilm, likedFilms):
 		totalScore = 0
-		
+
 		for likedFilm in likedFilms:
 			if dbFilm['id'] == likedFilm['id']:
 				continue
-			
-			genreScore = MovieSuggester.__getGenreScore(likedFilm, dbFilm)
+
+			gScore = MovieSuggester.__getgScore(likedFilm, dbFilm)
 			directorScore = MovieSuggester.__getDirectorScore(likedFilm, dbFilm)
 			actorScore = MovieSuggester.__getActorScore(likedFilm, dbFilm)
 			writerScore = MovieSuggester.__getWriterScore(likedFilm, dbFilm)
 			companyScore = MovieSuggester.__getCompanyScore(likedFilm, dbFilm)
 			userRatingScore = MovieSuggester.__getUserRatingScore(likedFilm, dbFilm)
-			contentRatingScore = MovieSuggester.__getContentRatingScore(likedFilm, dbFilm)
-			yearScore = MovieSuggester.__getYearScore(likedFilm, dbFilm)
-			totalScore += genreScore + directorScore + actorScore + writerScore + companyScore + userRatingScore + contentRatingScore + yearScore
-		
+			cRScore = MovieSuggester.__getcRScore(likedFilm, dbFilm)
+			yScore = MovieSuggester.__getyScore(likedFilm, dbFilm)
+			totalScore += gScore + directorScore + actorScore + writerScore + companyScore + userRatingScore + cRScore + yScore
+
 		return totalScore
-	
+
 	@staticmethod
 	def __getFilmInfoList(filmIds, filmInfoDatabase, orderMatters):
 		likedFilmInfoList = []
-		
+
 		if not orderMatters:
 			for dbFilm in filmInfoDatabase:
 				if dbFilm['id'] in filmIds:
@@ -110,31 +110,31 @@ class MovieSuggester:
 				for dbFilm in filmInfoDatabase:
 					if dbFilm['id'] == filmId:
 						likedFilmInfoList.append(dbFilm)
-		
+
 		return likedFilmInfoList
-	
+
 	@staticmethod
 	def getFilmObjects(filmsPath, filmInfoDatabase, orderMatters):
 		filmIds = db.loadDatabase(filmsPath)[0]
-		
+
 		return MovieSuggester.__getFilmInfoList(filmIds, filmInfoDatabase, orderMatters)
-	
+
 	@staticmethod
 	def getTopSuggestedFilms(likedFilmsPath, filmInfoDatabasePath, maxCount):
 		filmInfoDatabase = db.loadFilmInfoDatabase(filmInfoDatabasePath)
 		likedFilms = MovieSuggester.getFilmObjects(likedFilmsPath, filmInfoDatabase, False)
 		filmInfoDatabaseScoreList = []
-		
+
 		for dbFilm in filmInfoDatabase:
 			score = MovieSuggester.__scoreFilm(dbFilm, likedFilms)
-			m = MovieElement(dbFilm['name'], dbFilm['id'], score)
+			m = MovieElement(dbFilm['n'], dbFilm['id'], score)
 			filmInfoDatabaseScoreList.append(m)
-		
+
 		filmInfoDatabaseScoreList.sort(key=lambda x: x.score, reverse=True)
 		filmInfoDatabaseScoreList = filmInfoDatabaseScoreList[:maxCount]
 		suggestedFilms = []
-		
+
 		for movieObject in filmInfoDatabaseScoreList:
 			suggestedFilms.append(movieObject.id)
-		
+
 		return suggestedFilms

@@ -1,6 +1,6 @@
 # MovieDyanmo
 
-> Note: Only compatible with Python 2.7
+> Note: Compatible with Python 3 (tested on 3.6 and 3.7)
 
 ### Purpose
 

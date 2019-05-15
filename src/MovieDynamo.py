@@ -19,7 +19,7 @@ def printSuggestions(outputFilePath, filmInfoDatabasePath):
 	filmInfoDatabase = db.loadFilmInfoDatabase(filmInfoDatabasePath)
 	filmInfoDatabaseScoreList = ms.getFilmObjects(outputFilePath, filmInfoDatabase, True)
 	i = 0
-	
+
 	for film in filmInfoDatabaseScoreList:
 		i += 1
 		print(str(i) + ':\t[tt' + film['id'] + '] ' + film['name'])
@@ -28,14 +28,14 @@ def printSuggestions(outputFilePath, filmInfoDatabasePath):
 def run():
 	if len(sys.argv) < 3:
 		printUsage()
-	
+
 	command = sys.argv[1]
 	inputFilePath = sys.argv[2]
-	
+
 	if not os.path.isfile(inputFilePath):
 		print(inputFilePath, 'could not be found.')
 		sys.exit(1)
-	
+
 	with open(inputFilePath) as json_file:
 		data = json.load(json_file)
 		filmIdDatabasePath = data['filmIdDatabase']
@@ -44,35 +44,35 @@ def run():
 		dislikedFilmsPath = data['dislikedFilms']
 		outputFilePath = data['outputFile']
 		maxCount = int(data['count'])
-	
+
 	fileNotFound = False
-	
+
 	if command == 'updateIdDatabase' and not os.path.isfile(filmIdDatabasePath):
 		fileNotFound = True
 		print(filmIdDatabasePath, 'could not be found.')
-	
+
 	if (command == 'suggestFilms' or command == 'printSuggestions') and not os.path.isfile(filmInfoDatabasePath):
 		fileNotFound = True
 		print(filmInfoDatabasePath, 'could not be found.')
-	
+
 	if command == 'suggestFilms' and not os.path.isfile(likedFilmsPath):
 		fileNotFound = True
 		print(likedFilmsPath, 'could not be found.')
-	
+
 	# I may use films that are disliked by the user in the future to make suggestions
 	# if not os.path.isfile(dislikedFilmsPath):
 	# 	fileNotFound = True
 	# 	print(dislikedFilmsPath, 'could not be found.')
-	
+
 	if command == 'printSuggestions' and not os.path.isfile(outputFilePath):
 		fileNotFound = True
 		print(outputFilePath, 'could not be found.')
-	
+
 	if fileNotFound:
 		sys.exit(1)
-	
+
 	if command == 'suggestFilms':
-		print('Making suggestions, please wait. This should only take a few seconds.')
+		print('Making suggestions, please wait. This should only take a couple seconds.')
 		suggestedFilms = ms.getTopSuggestedFilms(likedFilmsPath, filmInfoDatabasePath, maxCount)
 		db.saveDatabase(suggestedFilms, outputFilePath)
 		print('Done! Suggestions were saved to ' + outputFilePath + '.')

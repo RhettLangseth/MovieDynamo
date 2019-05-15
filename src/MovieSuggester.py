@@ -45,7 +45,7 @@ class MovieSuggester:
 
 	@staticmethod
 	def __getDirectorScore(likedFilm, dbFilm):
-		return len(set(likedFilm['dIds']) & set(dbFilm['dIds'])) / len(set(likedFilm['dIds']) | set(dbFilm['dIds']))
+		return len(set(likedFilm['dId']) & set(dbFilm['dId'])) / len(set(likedFilm['dId']) | set(dbFilm['dId']))
 
 	@staticmethod
 	def __getActorScore(likedFilm, dbFilm):

@@ -4,6 +4,7 @@ import json
 from DatabaseHandler import DatabaseHandler as db
 from MovieSuggester import MovieSuggester as ms
 
+# Output usage directions for the user
 
 def printUsage():
 	print('Usage: python MovieDynamo.py [Command] [Input File Name]')
@@ -20,9 +21,11 @@ def printSuggestions(outputFilePath, filmInfoDatabasePath):
 	filmInfoDatabaseScoreList = ms.getFilmObjects(outputFilePath, filmInfoDatabase, True)
 	i = 0
 
+	# Underline the links and print them out along with the title in parentheses
+
 	for film in filmInfoDatabaseScoreList:
 		i += 1
-		print(str(i) + ':\t[tt' + film['id'] + '] ' + film['name'])
+		print(str(i) + ':\t' + '\033[4m' + 'https://www.imdb.com/title/tt' + str(film['id']) + '\033[0m' + ' (' + film['n'] + ')')
 
 
 def run():
@@ -70,6 +73,8 @@ def run():
 
 	if fileNotFound:
 		sys.exit(1)
+
+	# Check the user parameters
 
 	if command == 'suggestFilms':
 		print('Making suggestions, please wait. This should only take a couple seconds.')
